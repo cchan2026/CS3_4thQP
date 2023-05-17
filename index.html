@@ -43,7 +43,7 @@
             console.log(cust_order);
         }
         function removeFromCart(event){
-            var itemRemove = Number(event.target.id.slice(7,8)) - 1;
+            var itemRemove = Number(event.target.id.slice(7,8));
             cust_order.splice(itemRemove, 1);
             console.log(cust_order);
             document.getElementById("txtfoodcart").value = JSON.stringify(cust_order);
