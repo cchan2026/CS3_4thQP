@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I WILL BUY YOR MOM</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <script>
+        var cust_order = [];
+        var menu = [
+            {prod_name:'Halo Halo',prod_price:60},
+            {prod_name:'Puto Bumbong',prod_price:70},
+            {prod_name:'Sapin-Sapin',prod_price:50},
+            {prod_name:'Ube Halaya',prod_price:110}
+        ];
+        function showCart() {
+            if (cust_order.length == 0) {
+                document.getElementById("ulcart").innerHTML = '<li class="list-group-item d-flex jusitfy-content-center">The cart is currently empty</li>';
+                document.getElementById("txttotal").innerHTML = "0.00";
+                document.getElementById("txtfoodcart").value = JSON.stringify(cust_order);
+            }
+            else{
+                var total = 0;
+                document.getElementById("ulcart").innerHTML = "";
+                for(var i=0; i<cust_order.length; i++) {
+                    document.getElementById("ulcart").innerHTMl = "";
+                    total += cust_order[i].prod_price;
+                    document.getElementById("ulcart").innerHTML += '<li class="list-group-item d-flex justify-content-between"><span class="d-inline-block">' + cust_order[i].prod_name + '</span><span class="d-inline-block">' + cust_order[i].prod_price.toFixed(2) + '</span></li>'
+                    + '<button class="btn btn-sm btn-secondary" id="rem_btn' + i + '" onClick="removeFromCart(event)">Remove Item</button>';
+                }
+                document.getElementById("txttotal").innerHTML = total.toFixed(2);
+                document.getElementById("txtfoodcart").value = JSON.stringify(cust_order);
+            }
+        }
+        function addToCart(event){
+            var itemChosen = Number(event.target.id.slice(3,4)) - 1;
+            cust_order.push(menu[itemChosen]);
+            showCart();
+            console.log(cust_order);
+        }
+        function removeFromCart(event){
+            var itemRemove = Number(event.target.id.slice(7,8)) - 1;
+            cust_order.splice(itemRemove, 1);
+            console.log(cust_order);
+            document.getElementById("txtfoodcart").value = JSON.stringify(cust_order);
+            showCart();
+        }
+    </script>
+
+    <style>
+        body{
+            background-image: url("plantbgimg.png");
+            font-family: 'Sigmar', cursive;
+        }
+        .heading{
+            height: 100px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .main{
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+        }
+        .btn{
+            background-color: rgb(83, 105, 46);
+        }
+        .btn:hover{
+            background-color: rgb(57, 71, 32);
+        }
+        .btn:active{
+            background-color: rgb(130, 150, 92);
+        }
+        .card-img-top{
+            width: 100%;
+            height: 10vw;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="container">
+    <div class="main">
+        <div class="row mb-5">
+            <div class="col-sm-8">
+                <h3>CATEGORY 1</h3>
+                <div class="row g-4">
+    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="halohalo.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Halo Halo</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 60.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="putobumbong.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Puto Bumbong</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 70.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="sapinsapin.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Sapin-sapin</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 50.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Ube Halaya</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 110.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn4" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="text-center">YOUR CART</h5>
+                            <ul class="list-group list-group-flush" id="ulcart">
+                                <li class="list-group-item d-flex justify-content-center"><em>There are no items in the cart yet.</em></li>
+                            </ul>
+                            <h6 class="d-flex justify-content-between p-3">
+                                <span class="d-inline-block">Total</span>
+                                <span class="d-inline-block" id="txttotal">P 0.00</span>
+                            </h6>
+                        </div>
+                        <div class="card-footer">
+                            <h5 class="mt-3">Delivery Details</h5>
+                            <form action = http://sirjm.infinityfreeapp.com/checkout.php method="get">
+                                <div class="mb-3">
+                                    <label for="txtName" class="form-label">Name</label>
+                                    <input id="txtName" type="text" class="form-control" name="cust_name">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtAddr" class="form-label">Address</label>
+                                    <input id="txtAddr" type="text" class="form-control" name="cust_addr">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtAddr" class="form-label">Email Address</label>
+                                    <input id="txtAddr" type="email" class="form-control" name="cust_email">
+                                </div>
+                                <div class="mb-3">
+                                    
+                                    <div class="form-check form-check-inline">
+                                        <input type="hidden" name="cust_order" id="txtfoodcart">
+                                    </div>                    
+                                </div>
+                                <div class="mb-3">
+                                    <input type="submit" value="Checkout" class="btn btn-primary">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>    
+        </div>
+    </div>            
+</body>
+</html>
