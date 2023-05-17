@@ -57,13 +57,13 @@
             }
         }
         function addToCart(event){
-            var itemChosen = Number(event.target.id.slice(3,4)) - 1;
+            var itemChosen = Number(event.target.id.slice(3,5)) - 1;
             cust_order.push(menu[itemChosen]);
             showCart();
             console.log(cust_order);
         }
         function removeFromCart(event){
-            var itemRemove = Number(event.target.id.slice(7,8));
+            var itemRemove = Number(event.target.id.slice(7,9));
             cust_order.splice(itemRemove, 1);
             console.log(cust_order);
             document.getElementById("txtfoodcart").value = JSON.stringify(cust_order);
@@ -103,7 +103,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <img src="#" alt="halohalo.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Halo Halo</h5>
+                                <h5 class="card-title">Camping Chair</h5>
                                 <h6 class="card-subtitle mb-3 text-body-secondary">P 60.00</h6>
                                 <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
                             </div>
@@ -114,7 +114,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <img src="#" alt="putobumbong.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Puto Bumbong</h5>
+                                <h5 class="card-title">Camping Mug</h5>
                                 <h6 class="card-subtitle mb-3 text-body-secondary">P 70.00</h6>
                                 <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
                             </div>
@@ -125,7 +125,7 @@
                         <div class="card h-100">
                             <div class="card-body">
                                 <img src="#" alt="sapinsapin.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Sapin-sapin</h5>
+                                <h5 class="card-title">Camping Tent</h5>
                                 <h6 class="card-subtitle mb-3 text-body-secondary">P 50.00</h6>
                                 <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
                             </div>
@@ -135,13 +135,107 @@
                     <div class="col">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h5 class="card-title">Ube Halaya</h5>
+                                <h5 class="card-title">Hiking Backpack</h5>
                                 <h6 class="card-subtitle mb-3 text-body-secondary">P 110.00</h6>
                                 <button class="btn btn-sm btn-secondary" id="btn4" onclick="addToCart(event)">Add to Cart</button>
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="halohalo.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Portable Hammock</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 60.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn5" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="halohalo.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Sleeping Bag</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 60.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn6" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
+                
+                <h3>WATER SPORTS EQUIPMENTS</h3>
+                <div class="row g-4">
+    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="halohalo.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Banana Boat</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 60.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn7" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="putobumbong.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Floatie Chair</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 70.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn8" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="sapinsapin.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Jet Ski</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 50.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn9" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Kayak</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 110.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn10" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="halohalo.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Life Jacket</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 60.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn11" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <img src="#" alt="halohalo.png" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                <h5 class="card-title">Surf Board</h5>
+                                <h6 class="card-subtitle mb-3 text-body-secondary">P 60.00</h6>
+                                <button class="btn btn-sm btn-secondary" id="btn12" onclick="addToCart(event)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
