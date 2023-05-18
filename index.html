@@ -96,289 +96,249 @@
     <div class="main">
         <div class="row mb-5">
             <div class="col-sm-8">
-                <h3>CAMPING EQUIPMENTS</h3>
-                <div class="row g-4">
+                <div class="camping">
+                    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I WILL BUY YOR MOM</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <script>
+        var cust_order = [];
+        var menu = [
+            {prod_name:'Camping Chair',prod_price:450.00},
+            {prod_name:'Camping Mug',prod_price:120.00},
+            {prod_name:'Camping Tent',prod_price:700.00},
+            {prod_name:'Hiking Backpack',prod_price:880.00},
+            {prod_name:'Portable Hammock',prod_price:350.00},
+            {prod_name:'Sleeping Bag',prod_price:490.00},
+            {prod_name:'Banana Boat',prod_price:59000.00},
+            {prod_name:'Floatie Chair',prod_price:950.00},
+            {prod_name:'Jet Ski',prod_price:20000.00},
+            {prod_name:'Kayak',prod_price:19000.00},
+            {prod_name:'Life Jacket Set',prod_price:1200.00},
+            {prod_name:'Surf Board',prod_price:18500.00},
+            {prod_name:'Badminton Set',prod_price:2300.00},
+            {prod_name:'Basketball',prod_price:2100.00},
+            {prod_name:'Football',prod_price:1100.00},
+            {prod_name:'Golf Clubs',prod_price:4200.00},
+            {prod_name:'Portable Net',prod_price:450.00},
+            {prod_name:'Volleyball',prod_price:3500.00},
+            {prod_name:'Bicycle Helmet',prod_price:550.00},
+            {prod_name:'Leggings',prod_price:500.00},
+            {prod_name:'Sneakers',prod_price:2500.00},
+            {prod_name:'Waterproof Jacket',prod_price:1900.00},
+            {prod_name:'Wool Hiking Shirt',prod_price:2000.00},
+            {prod_name:'Work-out Shorts',prod_price:750.00}
+        ];
+        function showCart() {
+            if (cust_order.length == 0) {
+                document.getElementById("ulcart").innerHTML = '<li class="list-group-item d-flex jusitfy-content-center">The cart is currently empty</li>';
+                document.getElementById("txttotal").innerHTML = "0.00";
+                document.getElementById("txtfoodcart").value = JSON.stringify(cust_order);
+            }
+            else{
+                var total = 0;
+                document.getElementById("ulcart").innerHTML = "";
+                for(var i=0; i<cust_order.length; i++) {
+                    document.getElementById("ulcart").innerHTMl = "";
+                    total += cust_order[i].prod_price;
+                    document.getElementById("ulcart").innerHTML += '<li class="list-group-item d-flex justify-content-between"><span class="d-inline-block">' + cust_order[i].prod_name + '</span><span class="d-inline-block">' + cust_order[i].prod_price.toFixed(2) + '</span></li>'
+                    + '<button class="btn btn-sm btn-secondary" id="rem_btn' + i + '" onClick="removeFromCart(event)">Remove Item</button>';
+                }
+                document.getElementById("txttotal").innerHTML = total.toFixed(2);
+                document.getElementById("txtfoodcart").value = JSON.stringify(cust_order);
+            }
+        }
+        function addToCart(event){
+            var itemChosen = Number(event.target.id.slice(3,5)) - 1;
+            cust_order.push(menu[itemChosen]);
+            showCart();
+            console.log(cust_order);
+        }
+        function removeFromCart(event){
+            var itemRemove = Number(event.target.id.slice(7,9));
+            cust_order.splice(itemRemove, 1);
+            console.log(cust_order);
+            document.getElementById("txtfoodcart").value = JSON.stringify(cust_order);
+            showCart();
+        }
+    </script>
+
+    <style>
+        body{
+        }
+        .heading{
+        }
+        .btn{
+            background-color: rgb(83, 105, 46);
+        }
+        .btn:hover{
+            background-color: rgb(57, 71, 32);
+        }
+        .btn:active{
+            background-color: rgb(130, 150, 92);
+        }
+        .card-img-top{
+            width: 100%;
+            height: 10vw;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="container">
+    <div class="main">
+        <div class="row mb-5">
+            <div class="col-sm-8">
+                <div class="camping">
+                    <h3>CAMPING EQUIPMENTS</h3>
+                    <div class="row g-4">
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingchair.webp" alt="campingchair.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Chair</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
     
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="campingchair.webp" alt="campingchair.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Camping Chair</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingmug.webp" alt="campingmug.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Mug</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 120.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
     
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="campingmug.webp" alt="campingmug.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Camping Mug</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 120.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingtent.jpeg" alt="campingtent.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Tent</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 700.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row g-4">
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingchair.webp" alt="campingchair.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Chair</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
     
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="campingtent.jpeg" alt="campingtent.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Camping Tent</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 700.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingmug.webp" alt="campingmug.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Mug</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 120.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
     
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="hikingbackpack.webp" alt="hikingbackpack.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Hiking Backpack</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 880.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn4" onclick="addToCart(event)">Add to Cart</button>
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingtent.jpeg" alt="campingtent.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Tent</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 700.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="portablehammock.webp" alt="portablehammock.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Portable Hammock</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 350.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn5" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="sleepingbag.webp" alt="sleepingbag.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Sleeping Bag</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 490.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn6" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
                 
-                <h3>WATER SPORTS EQUIPMENTS</h3>
-                <div class="row g-4">
+                <div class="camping">
+                    <h3>CAMPING EQUIPMENTS</h3>
+                    <div class="row g-4">
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingchair.webp" alt="campingchair.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Chair</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
     
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="bananaboat.jpeg" alt="bananaboat.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Banana Boat</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 59000.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn7" onclick="addToCart(event)">Add to Cart</button>
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingmug.webp" alt="campingmug.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Mug</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 120.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
     
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="floatiechair.jpeg" alt="floatiechair.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Floatie Chair</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 950.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn8" onclick="addToCart(event)">Add to Cart</button>
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingtent.jpeg" alt="campingtent.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Tent</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 700.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="row g-4">
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingchair.webp" alt="campingchair.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Chair</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
     
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="jetski.jpeg" alt="jetski.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Jet Ski</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 20000.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn9" onclick="addToCart(event)">Add to Cart</button>
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingmug.webp" alt="campingmug.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Mug</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 120.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
     
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="kayak.jpeg" alt="kayak.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Kayak</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 19000.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn10" onclick="addToCart(event)">Add to Cart</button>
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingtent.jpeg" alt="campingtent.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Tent</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 700.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="lifejacket.webp" alt="lifejacket.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Life Jacket</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 1200.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn11" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="surfboard.webp" alt="surfboard.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Surf Board</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 18500.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn12" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
                 
-                <h3>LAND SPORTS EQUIPMENTS</h3>
-                <div class="row g-4">
-    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="badmintonset.webp" alt="badmintonset.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Badminton Set</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 2300.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn13" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="basketball.webp" alt="basketball.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Basketball</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 2100.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn14" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="football.webp" alt="football.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Football</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 1100.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn15" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="golfclubs.webp" alt="golfclubs.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Golf Clubs</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 4200.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn16" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="portablenet.webp" alt="portablenet.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Portable Net</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn17" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="volleyball.webp" alt="volleyball.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Volleyball</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 3500.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn18" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                
-                <h3>ATHLETIC WEAR</h3>
-                <div class="row g-4">
-    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="bicyclehelmet.webp" alt="bicyclehelmet.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Bicycle Helmet</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 550.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn19" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="leggings.webp" alt="leggings.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Leggings</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 500.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn20" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="sneakers.webp" alt="sneakers.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Sneakers</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 2500.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn21" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="waterproofjacket.webp" alt="waterproofjacket.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Waterproof Jacket</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 1900.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn22" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="woolhikingshirt.webp" alt="woolhikingshirt.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Wool Hiking Shirt</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 2000.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn23" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <img src="workoutshorts.webp" alt="workoutshorts.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
-                                <h5 class="card-title">Work-Out Shorts</h5>
-                                <h6 class="card-subtitle mb-3 text-body-secondary">P 750.00</h6>
-                                <button class="btn btn-sm btn-secondary" id="btn24" onclick="addToCart(event)">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>                
                 <div class="col-sm-4">
                     <div class="card">
                         <div class="card-body">
@@ -418,7 +378,151 @@
                             </form>
                         </div>
                     </div>
-                </div>    
+                </div>
+                
+                <div class="camping">
+                    <h3>CAMPING EQUIPMENTS</h3>
+                    <div class="row g-4">
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingchair.webp" alt="campingchair.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Chair</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingmug.webp" alt="campingmug.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Mug</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 120.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingtent.jpeg" alt="campingtent.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Tent</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 700.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingchair.webp" alt="campingchair.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Chair</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingmug.webp" alt="campingmug.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Mug</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 120.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingtent.jpeg" alt="campingtent.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Tent</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 700.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="camping">
+                    <h3>CAMPING EQUIPMENTS</h3>
+                    <div class="row g-4">
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingchair.webp" alt="campingchair.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Chair</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingmug.webp" alt="campingmug.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Mug</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 120.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingtent.jpeg" alt="campingtent.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Tent</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 700.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingchair.webp" alt="campingchair.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Chair</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 450.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn1" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingmug.webp" alt="campingmug.webp" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Mug</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 120.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn2" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <img src="campingtent.jpeg" alt="campingtent.jpeg" width="100" height="100" style="border-radius: 100px; margin-bottom: 10px;">
+                                    <h5 class="card-title">Camping Tent</h5>
+                                    <h6 class="card-subtitle mb-3 text-body-secondary">P 700.00</h6>
+                                    <button class="btn btn-sm btn-secondary" id="btn3" onclick="addToCart(event)">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>            
 </body>
